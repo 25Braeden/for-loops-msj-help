@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class loops1 {
     public static void waitForUserInput(Scanner scanner) {
@@ -34,131 +36,178 @@ public class loops1 {
     }
 
     public static void problem4() {
-        int i = 1;
-        while (i <= 10) {
-            System.out.println(i * i);
-            i++;
+        int i = 40;
+        int j = 10;
+        while (i > j) {
+            System.out.println(i);
+            i = i - 10;
         }
     }
 
     public static void problem5() {
-        int i = 1;
-        int sum = 0;
-        while (i <= 10) {
-            sum += i * i;
-            i++;
+        int i = 30;                     
+        int j = 10;                         
+        if (i > 10 + j) {                
+            while (i > j) {                   
+                i = i - 10;                     
+                System.out.println(i);         
+            }                               
+        } else {                            
+            while (j >= i) {                  
+                j = j - 10;                     
+                System.out.println(j);          
+            }
         }
-        System.out.println(sum);
     }
 
     public static void problem6() {
-        int i = 1;
-        while (i <= 10) {
-            System.out.println(i * (i + 1));
-            i++;
+        int i = 10;
+        int j = 10;
+        if (i > 10 + j) {
+            while (i > j) {
+                i = i - 10;
+                System.out.println(i);
+            }
+        } else {
+            while (j >= i) {
+                j = j - 10;
+                System.out.println(j);
+            }
         }
     }
 
     public static void problem7() {
-        int i = 1;
-        int sum = 0;
-        while (i <= 10) {
-            sum += i * (i + 1);
-            i++;
+        int i = 30;                     
+        int j = 10;                         
+        while (i >= j) {                     
+            if (i > j + 10) {                
+                System.out.println("yes");      
+            } else {                            
+                System.out.println("no");        
+            }   
+            i = i - 10;                     
         }
-        System.out.println(sum);
     }
 
     public static void problem8() {
-        int i = 1;
-        while (i <= 10) {
-            System.out.println(Math.pow(2, i));
-            i++;
+        for (int i = 1; i <= 10; i++) {
+            if (i == 2) {
+                System.out.println("hello");
+            } else if (i == 3) {
+                System.out.println("goodbye");
+            } else if (i == 4) {
+                System.out.println("why");
+            }
+            if (i < 5) {
+                System.out.println("help");
+            }
+            if (i > 6) {
+                System.out.println("blue");
+            }
         }
     }
 
     public static void problem9() {
-        int i = 1;
-        int sum = 0;
-        while (i <= 10) {
-            sum += Math.pow(2, i);
-            i++;
+        int w = 0;
+        for (int h = -2; h <= 5; ++h) {
+            w = w + h;
         }
-        System.out.println(sum);
+        System.out.println(w);
     }
 
     public static void problem10() {
-        int i = 1;
-        while (i <= 10) {
-            System.out.println(Math.pow(-1, i) * i);
-            i++;
+        int w = 0;
+        for (int h = 10; h > 0; --h) {
+            System.out.print(w);
         }
     }
 
     public static void problem11() {
-        int i = 1;
-        int sum = 0;
-        while (i <= 10) {
-            sum += Math.pow(-1, i) * i;
-            i++;
+        int n = 1;
+        for (int k = 2; k <= 5; k++) {
+            n = k - 2 * 3;
+            System.out.println(k + "  " + n);
         }
-        System.out.println(sum);
     }
 
     public static void problem12() {
-        int i = 1;
-        while (i <= 10) {
-            System.out.println(Math.pow(i, 3));
-            i++;
+        for (int x = 1; x <= 5; x++) {
+            System.out.println(x);
         }
+        // x is not accessible outside the for loop
     }
 
     public static void problem13() {
-        int i = 1;
+        List<Integer> values = new ArrayList<>();
+        values.add(9);
+        values.add(-3);
+        values.add(4);
+        values.add(6);
+        values.add(0);
+        values.add(5);
+        values.add(6);
+        values.add(0);
+        values.add(5);
+    
         int sum = 0;
-        while (i <= 10) {
-            sum += Math.pow(i, 3);
-            i++;
+        boolean finished = false;
+        int count = 0;
+    
+        for (int number : values) {
+            if (number > 0)
+                sum += number;
+            else if (number == 0)
+                finished = true;
+            count++;
         }
-        System.out.println(sum);
+    
+        System.out.println(sum + "  " + count);
     }
 
     public static void problem14() {
-        int i = 1;
-        while (i <= 10) {
-            System.out.println(Math.pow(-1, i + 1) * Math.pow(i, 2));
-            i++;
-        }
+        System.out.println("This sorts characters into three categories: punctuation, letters, and digits. It will tell the user what type of character they entered until they press /");
     }
 
     public static void problem15() {
-        int i = 1;
-        int sum = 0;
-        while (i <= 10) {
-            sum += Math.pow(-1, i + 1) * Math.pow(i, 2);
-            i++;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a character: ");
+        char character = scanner.next().charAt(0);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        for (int i = 0; i < number; i++) {
+            System.out.println(character);
         }
-        System.out.println(sum);
     }
 
     public static void problem16() {
-        Scanner scanner = new Scanner(System.in);
-        int n = 0;
-        while (n <= 0) {
-            System.out.print("Enter a positive integer: ");
-            n = scanner.nextInt();
-            if (n <= 0) {
-                System.out.println("Invalid input. Please enter a positive integer.");
+        Scanner getkeybd = new Scanner(System.in);
+
+        System.out.print("Enter the number of employees: ");
+        int numEmployees = getkeybd.nextInt();
+        int totpay = 0;
+        int empCount = 0;
+
+        while (empCount < numEmployees) {
+            System.out.println("Hours (enter a negative value to stop): ");
+            int hours = getkeybd.nextInt();
+
+            // Check for the sentinel value (negative hours)
+            if (hours < 0) {
+                break; // Exit the loop if hours are negative
             }
+
+            System.out.println("Rate: $");
+            double rate = getkeybd.nextDouble();
+            double pay = hours * rate;
+            System.out.println("Employee pay is : $ " + pay);
+            totpay += pay;
+            empCount++;
         }
 
-        int i = 1;
-        int sum = 0;
-        while (i <= n) {
-            sum += i;
-            i++;
-        }
-        System.out.println(sum);
+        System.out.println("Total payroll is $ " + totpay);
     }
 
     public static void problem17() {
